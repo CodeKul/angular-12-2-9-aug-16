@@ -1,0 +1,26 @@
+<html>
+<head>
+
+</head>
+<body onload="loadEvents()">
+  <input type="input" id="inputName" data-my-name="hello"/>
+  <label id="labelName"></label>
+
+  <script type="text/javascript">
+    function changeIt(data,label) {
+      label.innerHTML = data;
+    }
+
+    function changeItOther(){
+      var myAttr = document.getElementById('inputName').getAttribute('data-my-name');
+
+      document.getElementById('labelName').innerHTML =
+      document.getElementById('inputName').value + myAttr;
+    }
+
+    function loadEvents() {
+      document.getElementById('inputName').addEventListener('keyup', changeItOther);
+    }
+  </script>
+</body>
+</html>

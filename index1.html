@@ -1,0 +1,35 @@
+<html>
+<head>
+
+</head>
+<body ng-app="codekul">
+
+  <div ng-controller="MyController as myController">
+      <input type="input" ng-model="myController.myName"/>
+      <input type="input" ng-model="myController.myTopic"/>
+      <input type="button"ng-click="myController.myClick()"/>
+      <lable>{{myController.intrest}}</label>
+
+        <div>
+            Fb <input type="button" ng-click="myController.faceBook()"/>
+            G+ <input type="button" ng-click="myController.gPlus()"/>
+            <label>{{myController.res}}</label>
+            Json Response <input type="button" ng-click="myController.call()">
+        </div>
+  </div>
+
+  <div ng-controller="OtherController as other" ng-init="qty=0;cost=1;cost=qty*cost;">
+    <input type="number" ng-model="other.qty"/>
+    <input type="number" ng-model="other.cost"/>
+
+    <label> {{qty * cost | date}}</label>
+
+  </div>
+
+ <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.js"></script>
+
+<script src="factory.js"> </script>
+ <script src="app.js"> </script>
+
+</body>
+</html>
