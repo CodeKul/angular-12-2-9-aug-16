@@ -27,4 +27,14 @@ factory('webService',function webService() {
     return {
       call : call
     }
+}])
+.factory('simpleFactory',['$window','$log','$interval',function simpleFactory(win,lg,interval) {
+
+  interval(function(){
+    lg.log(''+new Date())
+  },1000);
+  return function (msg) {
+      lg.log(msg);
+      win.alert(msg);
+  };
 }]);

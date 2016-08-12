@@ -23,7 +23,25 @@
     <input type="number" ng-model="other.cost"/>
 
     <label> {{qty * cost | date}}</label>
+  </div>
 
+  <div ng-controller="ScopeController">
+    Hi this is Scope {{hello}}
+    <input type="button" ng-click="double(23)"/>
+    <br/>{{doubleVal}}
+  </div>
+
+  <div ng-controller="ParentController">
+      Parent State - {{parentState}}
+    <div ng-controller="ChildController">
+        Parent State - {{parentState}}
+        <p>Child State - {{childState}}
+    </div>
+  </div>
+
+  <div ng-controller="SimpleController">
+      <input type="button" ng-click="show('hi')"/>
+      {{ps}}
   </div>
 
  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.js"></script>

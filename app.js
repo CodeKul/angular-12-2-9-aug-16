@@ -15,4 +15,19 @@ angular.module('codekul',['module2'])
     this.res = call.call();
   }
 
+}]).controller('ScopeController',['$scope',function (scp) {
+  scp.hello = 'Hi I m in scope';
+  scp.double = function (val) {
+    scp.doubleVal = val * val;
+  };
+}]).controller('ParentController',['$scope',function(scp){
+  scp.parentState = 'Parent';
+}]).controller('ChildController',['$scope',function(scp){
+  scp.parentState = 'Child->Parent';
+  scp.childState = 'Child';
+}])
+.controller('SimpleController',['$scope','simpleFactory',function SimpleController(scp,simpleFactory) {
+  scp.show = function (msg) {
+    simpleFactory(msg);
+  };
 }]);
