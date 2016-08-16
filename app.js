@@ -1,4 +1,10 @@
 angular.module('codekul',['module2'])
+.config([function() {
+  console.log("Simple Factory config");
+}])
+.run(['$log',function (log) {
+    log.info("hello");
+}])
   .controller('MyController',['webService','webCall',function MyController(web,call) {
   this.myClick = function () {
     if(this.myName == 'Ani' && this.myTopic == 'Android'){
@@ -30,4 +36,35 @@ angular.module('codekul',['module2'])
   scp.show = function (msg) {
     simpleFactory(msg);
   };
-}]);
+}])
+.controller('StrcitDIController', function (simpleFactory) {
+
+})
+.controller('WatchController',['$scope',function WatchController(scp) {
+
+  scp.count = 10;
+  scp.$watch('count',function () {
+    console.log(''+scp.count);
+  });
+
+  scp.callForWatch = function () {
+    scp.count += scp.count;
+  };
+}])
+.controller('ApplyController',['$scope',function ApplyController(scp) {
+
+  scp.myApply = 0;
+
+  document.getElementById('myBtn').addEventListener('click', function () {
+      scp.myApply = new Date();
+      scp.$apply(function () {
+        console.log("called");
+      });
+  });
+}])
+.controller('ExpressionController',['$scope',function ExpressionController(scp) {
+
+  scp.myFun = function (ev) {
+      scp.ev = new Date();
+  };
+}])

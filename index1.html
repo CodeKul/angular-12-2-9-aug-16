@@ -2,7 +2,8 @@
 <head>
 
 </head>
-<body ng-app="codekul">
+<!-- <body ng-app="codekul" ng-strict-di> -->
+<body ng-app="codekul" >
 
   <div ng-controller="MyController as myController">
       <input type="input" ng-model="myController.myName"/>
@@ -44,10 +45,30 @@
       {{ps}}
   </div>
 
+  <div ng-controller="WatchController">
+    <input type="button" ng-click="callForWatch()" value="Watch"/>
+  </div>
+
+  <div ng-controller="ApplyController">
+    <input id="myBtn" type="button" click="callApply()"value="apply"/>
+    <label>{{myApply}}</label>
+  </div>
+
+  <div ng-controller="StrcitDIController">
+      {{a.b.c}}
+  </div>
+
+<div ng-controller="ExpressionController">
+  <input type="button" ng-click="myFun($event)" value="$event"/>
+  {{::ev | date : 'dd-MMM-yyyy HH:mm:ss a'}}
+</div>
+
  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.js"></script>
 
 <script src="factory.js"> </script>
  <script src="app.js"> </script>
+ <script >
 
+ </script>
 </body>
 </html>
