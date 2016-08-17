@@ -63,6 +63,23 @@
   {{::ev | date : 'dd-MMM-yyyy HH:mm:ss a'}}
 </div>
 
+<div ng-controller="InterpolationController">
+  <input type="checkbox" ng-model="isWorking"/>
+
+  <button ng-disabled="isWorking" >Okay </button>
+</div>
+
+<div ng-controller="FilterController as ctrl">
+  Enter City - <input type="text" ng-model="criteria"/>
+  <br/> Order - <input type="checkbox" ng-model="ordered"/>
+  <br/> Length  - <input type="input" ng-model="length"/>
+  <br/> Greter or Lesser  - <input type="checkbox" ng-model="ge"/>{{ge}}
+
+  <ul ng-repeat="city in ctrl.cities | filter:criteria |orderBy : ordered : ordered|filterLength:length:ge">
+    <li>{{city}}</li>
+  </ul>
+</div>
+
  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.js"></script>
 
 <script src="factory.js"> </script>

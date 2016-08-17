@@ -68,3 +68,17 @@ angular.module('codekul',['module2'])
       scp.ev = new Date();
   };
 }])
+.controller('InterpolationController',['$scope',function InterpolationController(scp) {
+}])
+.controller('FilterController',[function FilterController() {
+  this.cities = ['Pune','Mumbai','Nagpur','Kolhapur','Sangli','Delhi','Banglore'];
+}])
+.filter('filterLength',function () {
+  return function (input,val,status) {
+      if(input.length >= val && status) {
+        return input;
+      }
+      if(!status)
+      return input;
+  };
+});
